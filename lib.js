@@ -61,13 +61,22 @@ lib.generateFormTextField = function(name) {
 lib.generateFormTextFieldWithLabel = function(name, label) {
     return "<label>" + label + "</label> <input type=\"text\" name=\"" + name + "\">";
 }
-
 lib.generateDropdownList = function(arrayOfValues, arrayOfText) {
-    return "not yet implemented"
+    var html = "<select>";
+    for(x in arrayOfValues){
+        html += "<option value=\"" + arrayOfValues[x] + "\">" + arrayOfText[x] + "</option>";
+    }
+    html += "</select>";
+    return html;
 }
+// --> <iframe width="560" height="315" src="//www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe>
 
 lib.generateYoutubeVideoEmbeddableFrame = function(width, height, videoId, allowfullscreen) {
-    return "not yet implemented"
+    var html = "<iframe width=\"" + width+"\" height=\"" + height +"\" src=\"//www.youtube.com/embed/" + videoId +"\"";
+    if(allowfullscreen)
+        html += " allowfullscreen";
+    html += "></iframe>";
+    return html;
 }
 
 module.exports = lib
